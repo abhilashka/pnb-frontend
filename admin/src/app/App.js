@@ -8,6 +8,7 @@ import Footer from './shared/Footer';
 import { withTranslation } from "react-i18next";
 
 class App extends Component {
+  
   state = {}
   componentDidMount() {
     this.onRouteChanged();
