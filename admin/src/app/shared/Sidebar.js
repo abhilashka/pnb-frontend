@@ -68,8 +68,8 @@ class Sidebar extends Component {
           </li>
 
 
-          <li className={this.isPathActive('/icons') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
-            <Link className="nav-link" to="/icons">
+          <li className={this.isPathActive('/news') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
+            <Link className="nav-link" to="/news">
               <span className="menu-icon"><i className="mdi mdi-newspaper"></i></span>
               <span className="menu-title"><Trans>News</Trans></span>
             </Link>
@@ -83,8 +83,8 @@ class Sidebar extends Component {
           </li>
 
 
-          <li className={this.isPathActive('/icons') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
-            <Link className="nav-link" to="/icons">
+          <li className={this.isPathActive('/report') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
+            <Link className="nav-link" to="/report">
               <span className="menu-icon"><i className="mdi mdi-alert-outline"></i></span>
               <span className="menu-title"><Trans>Report</Trans></span>
             </Link>

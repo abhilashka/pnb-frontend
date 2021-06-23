@@ -1,6 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-
 import Spinner from '../app/shared/Spinner';
 
 const Dashboard = lazy(() => import('./dashboard/Dashboard'));
@@ -24,6 +23,12 @@ const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
 
 const Reporter = lazy(() => import('./reporter-request/Reporter'));
+const News = lazy(() => import('./news/news'));
+
+const Report = import('./report/report');
+
+
+
 
 
 class AppRoutes extends Component {
@@ -54,6 +59,8 @@ class AppRoutes extends Component {
 
 
           <Route path="/reporter-request" component={Reporter} />
+          <Route path="/report" component={Report} />
+          <Route path="/news" component={News} />
 
 
           <Redirect to="/dashboard" />
