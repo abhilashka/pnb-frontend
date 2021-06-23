@@ -4,8 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
 import "./i18n";
 import * as serviceWorker from './serviceWorker';
-import { combineReducers } from 'redux'
-import { FormGroup } from 'react-bootstrap';
 import { Provider } from 'react-redux'
 import store from './store'
 

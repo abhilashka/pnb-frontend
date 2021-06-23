@@ -1,42 +1,40 @@
 
 import {
-    REPORT_FETCH_REQUEST,
-    REPORT_FETCH_SUCCESS,
-    REPORT_FETCH_FAIL,
-    REPORT_FETCH_RESET,
-} from '../constant/reportConstants'
+    NEWS_FETCH_REQUEST,
+    NEWS_FETCH_SUCCESS,
+    NEWS_FETCH_FAIL,
+    NEWS_FETCH_RESET,
+} from '../constant/NEWSConstants'
 
 import axios from 'axios'
-import { BASE_URL, BASE_PORT } from '../constant/base'
 
 
 
-export const getReports = () => {
+export const getNews = () => {
     return (dispatch) => {
         dispatch({
-            type: REPORT_FETCH_REQUEST,
+            type: NEWS_FETCH_REQUEST,
         })
 
         const header = {
             headers: {
                 'Content-Type': 'application/json',
                 // token: sessionStorage['token'],
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
             },
         }
 
-        const url = BASE_URL + BASE_PORT + '/admin/report'
+        const url = 'https://jsonplaceholder.typicode.com/todos'
         axios
             .get(url, header)
             .then((response) => {
                 dispatch({
-                    type: REPORT_FETCH_SUCCESS,
+                    type: NEWS_FETCH_SUCCESS,
                     payload: response.data,
                 })
             })
             .catch((error) => {
                 dispatch({
-                    type: REPORT_FETCH_FAIL,
+                    type: NEWS_FETCH_FAIL,
                     payload: error,
                 })
             })
