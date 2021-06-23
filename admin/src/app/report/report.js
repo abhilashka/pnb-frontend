@@ -11,12 +11,14 @@ export const Report = (props) => {
     const dispatch = useDispatch()
     const report = useSelector((store) => store.report)
     const { error, response, loading } = report
+    // console.log("Report -> response", response.data)
 
     useEffect(() => {
         dispatch(getReports())
     }, [])
 
     useEffect(() => { }, [error, response, loading])
+
 
 
 
