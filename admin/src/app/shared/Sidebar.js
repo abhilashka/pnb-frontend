@@ -90,8 +90,8 @@ class Sidebar extends Component {
             </Link>
           </li>
 
-          <li className={this.isPathActive('/icons') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
-            <Link className="nav-link" to="/icons">
+          <li className={this.isPathActive('/users') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
+            <Link className="nav-link" to="/users">
               <span className="menu-icon"><i className="mdi mdi-account"></i></span>
               <span className="menu-title"><Trans>Users</Trans></span>
             </Link>
@@ -99,8 +99,8 @@ class Sidebar extends Component {
 
 
 
-          <li className={this.isPathActive('/icons') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
-            <Link className="nav-link" to="/icons">
+          <li className={this.isPathActive('/profile') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
+            <Link className="nav-link" to="/profile">
               <span className="menu-icon"><i className="mdi mdi-settings"></i></span>
               <span className="menu-title"><Trans>Profile</Trans></span>
             </Link>

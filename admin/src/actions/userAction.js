@@ -1,20 +1,20 @@
 
 import {
-    REPORT_FETCH_REQUEST,
-    REPORT_FETCH_SUCCESS,
-    REPORT_FETCH_FAIL,
-    REPORT_FETCH_RESET,
-} from '../constant/reportConstants'
+    USER_FETCH_REQUEST,
+    USER_FETCH_SUCCESS,
+    USER_FETCH_FAIL,
+    USER_FETCH_RESET,
+} from '../constant/userConstants'
 
 import axios from 'axios'
 import { BASE_URL, BASE_PORT } from '../constant/base'
 
 
 
-export const getReports = () => {
+export const getUsers = () => {
     return (dispatch) => {
         dispatch({
-            type: REPORT_FETCH_REQUEST,
+            type: USER_FETCH_REQUEST,
         })
 
         const header = {
@@ -25,18 +25,18 @@ export const getReports = () => {
             },
         }
 
-        const url = BASE_URL + BASE_PORT + '/admin/report'
+        const url = BASE_URL + BASE_PORT + '/admin/users'
         axios
             .get(url, header)
             .then((response) => {
                 dispatch({
-                    type: REPORT_FETCH_SUCCESS,
+                    type: USER_FETCH_SUCCESS,
                     payload: response.data,
                 })
             })
             .catch((error) => {
                 dispatch({
-                    type: REPORT_FETCH_FAIL,
+                    type: USER_FETCH_FAIL,
                     payload: error,
                 })
             })
