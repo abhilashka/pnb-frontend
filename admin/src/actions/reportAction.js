@@ -7,6 +7,8 @@ import {
 } from '../constant/reportConstants'
 
 import axios from 'axios'
+import { BASE_URL, BASE_PORT } from '../constant/base'
+console.log("BASE_URL", BASE_URL)
 
 
 
@@ -20,10 +22,12 @@ export const getReports = () => {
             headers: {
                 'Content-Type': 'application/json',
                 // token: sessionStorage['token'],
+                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
             },
         }
 
-        const url = 'https://jsonplaceholder.typicode.com/todos'
+        const url = BASE_URL + BASE_PORT + '/admin/report'
+        console.log("getReports -> url", url)
         axios
             .get(url, header)
             .then((response) => {

@@ -8,6 +8,7 @@
     "@mdi/font": "^4.9.95",
     "@tinymce/tinymce-react": "^3.12.6",
     "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "bootstrap": "^4.6.0",
     "bosket": "^0.2.3",
     "brace": "^0.11.1",
