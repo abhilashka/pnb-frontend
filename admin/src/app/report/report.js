@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getReports } from '../../actions/reportAction';
@@ -10,7 +9,7 @@ import { store } from '../../store';
 export const Report = (props) => {
 
     const dispatch = useDispatch()
-    const report = useSelector((store) => store.reports)
+    const report = useSelector((store) => store.report)
     const { error, response, loading } = report
 
     useEffect(() => {
@@ -23,7 +22,32 @@ export const Report = (props) => {
 
     return (
         <div>
-            <h1>hello</h1>
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>userId</th>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {response &&
+                        response.data &&
+                        response.data.length > 0 &&
+                        response.data.map((note) => {
+                            return (
+                                <tr>
+                                    <td>{note.userId}</td>
+                                    <td>{note.id}</td>
+                                    <td>{note.title}</td>
+                                    <td>{note.completed}</td>
+                                </tr>
+                            )
+                        })}
+                </tbody>
+            </table>
         </div>
     )
 

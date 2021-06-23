@@ -12,31 +12,12 @@ class App extends Component {
   componentDidMount() {
     this.onRouteChanged();
   }
-  render() {
-    let navbarComponent = !this.state.isFullPageLayout ? <Navbar /> : '';
-    let sidebarComponent = !this.state.isFullPageLayout ? <Sidebar /> : '';
-    let footerComponent = !this.state.isFullPageLayout ? <Footer /> : '';
-    return (
-      <div className="container-scroller">
-        {sidebarComponent}
-        <div className="container-fluid page-body-wrapper">
-          {navbarComponent}
-          <div className="main-panel">
-            <div className="content-wrapper">
-              <AppRoutes />
-            </div>
-            {footerComponent}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       this.onRouteChanged();
     }
   }
+
 
   onRouteChanged() {
     console.log("ROUTE CHANGED");
@@ -67,6 +48,30 @@ class App extends Component {
       }
     }
   }
+
+
+  render() {
+    let navbarComponent = !this.state.isFullPageLayout ? <Navbar /> : '';
+    let sidebarComponent = !this.state.isFullPageLayout ? <Sidebar /> : '';
+    let footerComponent = !this.state.isFullPageLayout ? <Footer /> : '';
+    return (
+      <div className="container-scroller">
+        {sidebarComponent}
+        <div className="container-fluid page-body-wrapper">
+          {navbarComponent}
+          <div className="main-panel">
+            <div className="content-wrapper">
+              <AppRoutes />
+            </div>
+            {footerComponent}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+
+
 
 }
 
