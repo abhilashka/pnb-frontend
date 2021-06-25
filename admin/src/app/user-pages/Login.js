@@ -6,9 +6,17 @@ import { signin } from '../../actions/oAuthAction'
 import { useDispatch, useSelector } from 'react-redux'
 
 
+const EmailError = () => {
+  return (
+    <div style={{ border: '1px solid red', alignItems: 'center' }}>
+      <h5 style={{ margin: '15px', cellPadding: '55px' }}>Please enter valid email/password</h5>
+    </div>
+  );
+}
+
 export const Login = (props) => {
 
-
+  const [showError, setShowError] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -20,17 +28,19 @@ export const Login = (props) => {
     dispatch(signin(email, password))
   }
 
+
   useEffect(() => {
 
     if (response && response.status == 'success') {
       sessionStorage.setItem('token', response.data.token)
       props.history.push('/dashboard')
+
     } else if (response && response.status == 'error') {
-      alert(response.error)
+      // alert(response.error);
+      setShowError(true);
     } else if (error) {
       alert(error)
     }
-
   }, [loading, error, response])
 
 
@@ -44,6 +54,7 @@ export const Login = (props) => {
                 <img src={require("../../assets/images/logo.svg")} alt="logo" />
               </div>
               <h3 className="">  SIGN IN-ADMIN </h3>
+              {(showError) ? <EmailError /> : ''}
               <Form className="pt-3">
                 <Form.Group className="d-flex search-field">
                   <Form.Control onChange={(e) => {
