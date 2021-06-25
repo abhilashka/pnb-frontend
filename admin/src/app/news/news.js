@@ -19,55 +19,34 @@ export const News = (props) => {
 
     useEffect(() => { }, [error, response, loading])
 
-
+    
 
 
     return (
-        <div>
+       <div className="row">
+             {response &&
 
-            <div className="row ">
-                <div className="col-12 grid-margin">
-                    <div className="card">
-                        <div className="card-body">
-                            <h4 className="card-title">Users</h4>
-                            <div className="table-responsive">
-                                <table className="table">
-                                    <thead>
-                                        <tr>
-
-                                            
-                                            <th>Content</th>
-                                            <th>Headline</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        {response &&
-
-                                            response.data &&
-                                            response.data.length > 0 &&
-                                            response.data.map((note, index) => {
-                                                return (
-                                                    <tr key={index}>
-
-                                                        <td>{note.content}</td>
-                                                        <td>{note.headline}</td>
-                                                       
-                                                      
-                                                    </tr>
-                                                )
-                                            })}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
+              response.data &&
+              response.data.length > 0 &&
+              response.data.map((note, index) => {
+    return (
+                
+              <div key={index}>
+                  <div className="news">
+                  <div  className="card md-col-2">
+                  <img src="" className="card-img-top" alt="..."/>
+                  <div className="card-body">
+                  <h5 className="card-title">{note.headline}</h5>
+                  <p className="card-text">{note.content}</p>
+                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                  </div>
+                 </div>
+               </div>
+              </div>
+          )
+       })}
+       </div>
+        
     )
 
 }
