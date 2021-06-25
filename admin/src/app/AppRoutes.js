@@ -7,6 +7,7 @@ import { User } from './user/user'
 import { Profile } from './profile/profile'
 import { Login } from './user-pages/Login';
 import { oAuth } from './oAuth/oAuth';
+import  {News}  from './news/news';
 
 const Dashboard = lazy(() => import('./dashboard/Dashboard'));
 
@@ -28,7 +29,7 @@ const Error500 = lazy(() => import('./error-pages/Error500'));
 // const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
 
-const News = lazy(() => import('./news/news'));
+
 
 
 

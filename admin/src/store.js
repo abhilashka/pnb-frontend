@@ -4,6 +4,7 @@ import { fetchReporterReducer } from './reducer/reporterReducer'
 import { fetchUserReducer } from './reducer/userReducer'
 import { fetchProfileReducer } from './reducer/profileReducer'
 import { userSigninReducer } from './reducer/oAuthReducer'
+import { fetchNewsReducer } from './reducer/newsReducer'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -15,7 +16,8 @@ const reducers = combineReducers({
     reporter: fetchReporterReducer,
     users: fetchUserReducer,
     profile: fetchProfileReducer,
-    adminSignin: userSigninReducer
+    adminSignin: userSigninReducer,
+    news: fetchNewsReducer,
 })
 
 const store = createStore(
