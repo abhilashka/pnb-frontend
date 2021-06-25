@@ -4,6 +4,8 @@ import {
     REPORTER_FETCH_SUCCESS,
     REPORTER_FETCH_FAIL,
     REPORTER_FETCH_RESET,
+    REPORTER_REQUEST_SUCCESS,
+    REPORTER_REQUEST_FAIL
 } from '../constant/reporterConstants'
 
 import axios from 'axios'
@@ -20,8 +22,7 @@ export const getReporterRequests = () => {
         const header = {
             headers: {
                 'Content-Type': 'application/json',
-                // token: sessionStorage['token'],
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
+                token: sessionStorage['token'],
             },
         }
 
@@ -44,3 +45,42 @@ export const getReporterRequests = () => {
 }
 
 
+export const handleReporterRequest = (email, type) => {
+
+    return (dispatch) => {
+        dispatch({
+            type: REPORTER_FETCH_REQUEST,
+        })
+
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                token: sessionStorage['token'],
+            },
+        }
+        console.log("handleReporterRequest -> sessionStorage['token']", sessionStorage['token'])
+
+        const body = {
+            email: email,
+            type: type
+        }
+        console.log("handleReporterRequest -> body", body)
+
+        const url = BASE_URL + BASE_PORT + '/admin/handlerequest'
+        console.log("handleReporterRequest -> url", url)
+        axios
+            .post(url, body, header)
+            .then((response) => {
+                dispatch({
+                    type: REPORTER_REQUEST_SUCCESS,
+                    payload: response.data,
+                })
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REPORTER_REQUEST_FAIL,
+                    payload: error,
+                })
+            })
+    }
+}
