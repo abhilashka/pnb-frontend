@@ -5,6 +5,8 @@ import { Report } from './report/report'
 import { Reporter } from './reporter-request/Reporter'
 import { User } from './user/user'
 import { Profile } from './profile/profile'
+import { Login } from './user-pages/Login';
+import { oAuth } from './oAuth/oAuth';
 
 const Dashboard = lazy(() => import('./dashboard/Dashboard'));
 
@@ -23,10 +25,9 @@ const ChartJs = lazy(() => import('./charts/ChartJs'));
 const Error404 = lazy(() => import('./error-pages/Error404'));
 const Error500 = lazy(() => import('./error-pages/Error500'));
 
-const Login = lazy(() => import('./user-pages/Login'));
+// const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
 
-// const Reporter = lazy(() => import('./reporter-request/Reporter'));
 const News = lazy(() => import('./news/news'));
 
 
@@ -53,7 +54,7 @@ class AppRoutes extends Component {
           <Route path="/charts/chart-js" component={ChartJs} />
 
 
-          <Route path="/user-pages/login-1" component={Login} />
+          {/* <Route path="/user-pages/login-1" component={Login} /> */}
           <Route path="/user-pages/register-1" component={Register1} />
 
           <Route path="/error-pages/error-404" component={Error404} />
@@ -66,9 +67,10 @@ class AppRoutes extends Component {
           <Route path="/report" component={Report} />
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
+          <Route path="/" component={Login} />
 
 
-          <Redirect to="/dashboard" />
+          {/* <Redirect to="/" /> */}
         </Switch>
       </Suspense>
     );
