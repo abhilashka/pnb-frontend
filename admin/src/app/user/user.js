@@ -1,9 +1,8 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsers, blockUser  } from '../../actions/userAction';
 import Switch from '@material-ui/core/Switch';
-
 
 
 
@@ -17,23 +16,17 @@ export const User = (props) => {
         dispatch(getUsers())
     }, [])
 
-
     useEffect(() => { }, [error, response, loading])
-
 
     const handleChange = (event) => {
 
         if (event.target.checked) {
             dispatch(blockUser(event.target.name, 1))
-
-
         }
         else {
             dispatch(blockUser(event.target.name, 0))
-
         }
         dispatch(getUsers())
-
     };
     return (
         <div>
