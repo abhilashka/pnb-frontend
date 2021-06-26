@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { fetchReportsReducer,toggleNewsReducer } from './reducer/reportReducer'
+import { fetchReportsReducer, toggleNewsReducer } from './reducer/reportReducer'
 import { fetchReporterReducer } from './reducer/reporterReducer'
 import { fetchUserReducer } from './reducer/userReducer'
 import { fetchProfileReducer } from './reducer/profileReducer'
@@ -18,7 +18,7 @@ const reducers = combineReducers({
     profile: fetchProfileReducer,
     adminSignin: userSigninReducer,
     news: fetchNewsReducer,
-    toggleReport:toggleNewsReducer
+    toggleReport: toggleNewsReducer
 })
 
 const store = createStore(

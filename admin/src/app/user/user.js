@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUsers } from '../../actions/userAction';
-import { Link } from 'react-router-dom';
-import { store } from '../../store';
+import { getUsers, blockUser  } from '../../actions/userAction';
+import Switch from '@material-ui/core/Switch';
+
+
 
 
 export const User = (props) => {
@@ -11,17 +12,29 @@ export const User = (props) => {
     const dispatch = useDispatch()
     const users = useSelector((store) => store.users)
     const { error, response, loading } = users
-    console.log("User -> response", response)
 
     useEffect(() => {
         dispatch(getUsers())
     }, [])
 
+
     useEffect(() => { }, [error, response, loading])
 
 
+    const handleChange = (event) => {
+
+        if (event.target.checked) {
+            dispatch(blockUser(event.target.name, 1))
 
 
+        }
+        else {
+            dispatch(blockUser(event.target.name, 0))
+
+        }
+        dispatch(getUsers())
+
+    };
     return (
         <div>
 
@@ -34,7 +47,6 @@ export const User = (props) => {
                                 <table className="table">
                                     <thead>
                                         <tr>
-
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Email</th>
@@ -44,9 +56,7 @@ export const User = (props) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         {response &&
-
                                             response.data &&
                                             response.data.length > 0 &&
                                             response.data.map((note, index) => {
@@ -58,7 +68,13 @@ export const User = (props) => {
                                                         <td>{note.phone}</td>
                                                         <td>{note.TYPE}</td>
                                                         <td>
-                                                            <div className="badge badge-outline-danger mx-2">Block</div>
+
+                                                            <Switch
+                                                                checked={note.isActive}
+                                                                onChange={handleChange}
+                                                                name={note.email}
+                                                            />
+
                                                         </td>
                                                     </tr>
                                                 )
