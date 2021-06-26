@@ -12,7 +12,6 @@ import {toast} from 'react-toastify';
 // Import toastify css file
 import 'react-toastify/dist/ReactToastify.css'; 
 
-import '../assets/styles/shards-dashboards.1.1.0.min.css'
   
  // toast-configuration method, 
  // it is compulsory method.
