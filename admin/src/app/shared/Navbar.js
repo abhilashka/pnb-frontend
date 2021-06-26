@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {
+  logout
+} from '../../actions/oAuthAction'
 
 class Navbar extends Component {
+
+  onLogout()  {
+    logout()
+    console.log('logout')
+  }
+
   toggleOffcanvas() {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
   }
@@ -40,7 +49,7 @@ class Navbar extends Component {
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="navbar-dropdown preview-list navbar-profile-dropdown-menu">
-                <h6 className="p-3 mb-0">Profile</h6>
+
                 <Dropdown.Divider />
                 <Dropdown.Item href="!#" onClick={evt => evt.preventDefault()} className="preview-item">
                   <div className="preview-thumbnail">
@@ -49,7 +58,10 @@ class Navbar extends Component {
                     </div>
                   </div>
                   <div className="preview-item-content">
-                    <p className="preview-subject mb-1">Settings</p>
+                    <Link to="/profile">
+                      <p className="preview-subject mb-1 text-light">Settings</p>
+
+                    </Link>
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Divider />
@@ -60,11 +72,10 @@ class Navbar extends Component {
                     </div>
                   </div>
                   <div className="preview-item-content">
-                    <p className="preview-subject mb-1">Log Out</p>
+                    <p className="preview-subject mb-1" onClick={this.onLogout}>Log Out</p>
                   </div>
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <p className="p-3 mb-0 text-center">Advanced settings</p>
               </Dropdown.Menu>
             </Dropdown>
           </ul>

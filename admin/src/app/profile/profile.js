@@ -5,23 +5,26 @@ import { getProfile } from '../../actions/profileAction';
 import { Link } from 'react-router-dom';
 import { store } from '../../store';
 import PropTypes from "prop-types";
-// import '../assets/styles/shards-dashboards.1.1.0.min.css'
-// import '../../assets/styles/shards-dashboards.1.1.0.min.css'
+import { Form } from 'react-bootstrap';
+import DatePicker from "react-datepicker";
+import bsCustomFileInput from 'bs-custom-file-input';
 
-import {
-    Card,
-    CardHeader,
-    ListGroup,
-    ListGroupItem,
-    Row,
-    Col,
-    Form,
-    FormGroup,
-    FormInput,
-    FormSelect,
-    FormTextarea,
-    Button
-} from "shards-react";
+
+
+// import {
+//     Card,
+//     CardHeader,
+//     ListGroup,
+//     ListGroupItem,
+//     Row,
+//     Col,
+//     Form,
+//     FormGroup,
+//     FormInput,
+//     FormSelect,
+//     FormTextarea,
+//     Button
+// } from "shards-react";
 
 export const Profile = ({ profile }) => {
 
@@ -49,114 +52,94 @@ export const Profile = ({ profile }) => {
     return (
         <div>
 
-            <Card className="mb-4">
-                <CardHeader className="border-bottom">
-                    <h6 className="m-0">{title}</h6>
-                </CardHeader>
-                <ListGroup flush>
-                    <ListGroupItem className="p-3">
-                        <Row>
-                            <Col>
-                                <Form>
-                                    <Row form>
-                                        {/* First Name */}
-                                        <Col md="6" className="form-group">
-                                            <label htmlFor="feFirstName">First Name</label>
-                                            <FormInput
-                                                id="feFirstName"
-                                                placeholder="First Name"
-                                                value="Sierra"
-                                                onChange={() => { }}
-                                            />
-                                        </Col>
-                                        {/* Last Name */}
-                                        <Col md="6" className="form-group">
-                                            <label htmlFor="feLastName">Last Name</label>
-                                            <FormInput
-                                                id="feLastName"
-                                                placeholder="Last Name"
-                                                value="Brooks"
-                                                onChange={() => { }}
-                                            />
-                                        </Col>
-                                    </Row>
-                                    <Row form>
-                                        {/* Email */}
-                                        <Col md="6" className="form-group">
-                                            <label htmlFor="feEmail">Email</label>
-                                            <FormInput
-                                                type="email"
-                                                id="feEmail"
-                                                placeholder="Email Address"
-                                                value="sierra@example.com"
-                                                onChange={() => { }}
-                                                autoComplete="email"
-                                            />
-                                        </Col>
-                                        {/* Password */}
-                                        <Col md="6" className="form-group">
-                                            <label htmlFor="fePassword">Password</label>
-                                            <FormInput
-                                                type="password"
-                                                id="fePassword"
-                                                placeholder="Password"
-                                                value="EX@MPL#P@$$w0RD"
-                                                onChange={() => { }}
-                                                autoComplete="current-password"
-                                            />
-                                        </Col>
-                                    </Row>
-                                    <FormGroup>
-                                        <label htmlFor="feAddress">Address</label>
-                                        <FormInput
-                                            id="feAddress"
-                                            placeholder="Address"
-                                            value="1234 Main St."
-                                            onChange={() => { }}
-                                        />
-                                    </FormGroup>
-                                    <Row form>
-                                        {/* City */}
-                                        <Col md="6" className="form-group">
-                                            <label htmlFor="feCity">City</label>
-                                            <FormInput
-                                                id="feCity"
-                                                placeholder="City"
-                                                onChange={() => { }}
-                                            />
-                                        </Col>
-                                        {/* State */}
-                                        <Col md="4" className="form-group">
-                                            <label htmlFor="feInputState">State</label>
-                                            <FormSelect id="feInputState">
-                                                <option>Choose...</option>
-                                                <option>...</option>
-                                            </FormSelect>
-                                        </Col>
-                                        {/* Zip Code */}
-                                        <Col md="2" className="form-group">
-                                            <label htmlFor="feZipCode">Zip</label>
-                                            <FormInput
-                                                id="feZipCode"
-                                                placeholder="Zip"
-                                                onChange={() => { }}
-                                            />
-                                        </Col>
-                                    </Row>
-                                    <Row form>
-                                        {/* Description */}
-                                        <Col md="12" className="form-group">
-                                            <label htmlFor="feDescription">Description</label>
-                                            <FormTextarea id="feDescription" rows="5" />
-                                        </Col>
-                                    </Row>
-                                    <Button theme="accent">Update Account</Button>
-                                </Form>
-                            </Col>
-                        </Row>
-                    </ListGroupItem>
-                </ListGroup>
-            </Card>
+            <div>
+                <div className="page-header">
+
+                </div>
+                <div className="row">
+                    <div className="col-md-6 grid-margin stretch-card">
+                        <div className="card">
+                            <div className="card-body">
+                                <h4 className="card-title">Default form</h4>
+                                <p className="card-description"> Basic form layout </p>
+                                <form className="forms-sample">
+                                    <Form.Group>
+                                        <label htmlFor="exampleInputUsername1">Username</label>
+                                        <Form.Control type="text" id="exampleInputUsername1" placeholder="Username" />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <label htmlFor="exampleInputEmail1">Email address</label>
+                                        <Form.Control type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <label htmlFor="exampleInputPassword1">Password</label>
+                                        <Form.Control type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                    </Form.Group>
+                                    <Form.Group>
+                                        <label htmlFor="exampleInputConfirmPassword1">Confirm Password</label>
+                                        <Form.Control type="password" className="form-control" id="exampleInputConfirmPassword1" placeholder="Password" />
+                                    </Form.Group>
+                                    <div className="form-check">
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6 grid-margin stretch-card">
+                        <div className="card">
+                            <div className="card-body">
+                                <h4 className="card-title">Update Profile</h4>
+                                <form className="forms-sample">
+                                    <div className="row">
+
+                                        <Form.Group >
+                                            <label htmlFor="exampleInputUsername2" >Firstname</label>
+                                            <Form.Control type="text" className="form-control col-sm-6" id="exampleInputUsername2" placeholder="Firstname" />
+                                        </Form.Group>
+                                        <Form.Group >
+                                            <label htmlFor="exampleInputEmail2" >Lastname</label>
+
+                                            <Form.Control type="email" className="form-control col-sm-6" id="exampleInputEmail2" placeholder="Lastname" />
+                                        </Form.Group>
+
+                                    </div>
+                                    <Form.Group className="row">
+                                        <label htmlFor="exampleInputMobile" className="col-sm-3 col-form-label">Mobile</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="text" className="form-control" id="exampleInputMobile" placeholder="Mobile number" />
+                                        </div>
+                                    </Form.Group>
+                                    <Form.Group className="row">
+                                        <label htmlFor="exampleInputPassword2" className="col-sm-3 col-form-label">Password</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" />
+                                        </div>
+                                    </Form.Group>
+                                    <Form.Group className="row">
+                                        <label htmlFor="exampleInputConfirmPassword2" className="col-sm-3 col-form-label">Re Password</label>
+                                        <div className="col-sm-9">
+                                            <Form.Control type="password" className="form-control" id="exampleInputConfirmPassword2" placeholder="Password" />
+                                        </div>
+                                    </Form.Group>
+                                    <div className="form-check">
+                                        <label className="form-check-label text-muted">
+                                            <input type="checkbox" className="form-check-input" />
+                                            <i className="input-helper"></i>
+                      Remember me
+                    </label>
+                                    </div>
+                                    <button type="submit" className="btn btn-primary mr-2">Submit</button>
+                                    <button className="btn btn-dark">Reset</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
 
 
 
