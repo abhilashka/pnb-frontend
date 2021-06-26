@@ -1,9 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getReporterRequests, handleReporterRequest } from '../../actions/reporterAction';
-import { Link } from 'react-router-dom';
-import { store } from '../../store';
 import { toast } from 'react-toastify';
 
 
@@ -22,7 +20,6 @@ export const Reporter = (props) => {
   }, [resourceType])
 
   useEffect(() => { }, [error, response, loading])
-  console.log("Reporter -> response", response)
 
 
 
@@ -41,10 +38,10 @@ export const Reporter = (props) => {
 
   }
 
-  
+
   return (
     <div>
-      {(response ) ? <h4>No reporter request</h4> : ""}
+      {(response) ? <h4>No reporter request</h4> : ""}
       {response && response.data &&
         response.data.length > 0 &&
         <div className="row ">
