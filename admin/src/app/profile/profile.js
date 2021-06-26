@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react';
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProfile } from '../../actions/profileAction';
-import { Link } from 'react-router-dom';
-import { store } from '../../store';
+import React, { Component } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProfile } from "../../actions/profileAction";
+import { Link } from "react-router-dom";
+import { store } from "../../store";
 import PropTypes from "prop-types";
 import { Form } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
