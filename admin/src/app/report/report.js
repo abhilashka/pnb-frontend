@@ -1,25 +1,61 @@
-import  React  from 'react';
+import React, { useState, useRef } from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getReports } from '../../actions/reportAction';
+import { getReports, toggleNews } from '../../actions/reportAction';
 import store from '../../store';
-
+import { ToggleButton } from "./toggler";
+import Switch from 'react-neumorphic-toggle';
 
 export const Report = (props) => {
 
     const dispatch = useDispatch()
     const report = useSelector((store) => store.report)
-    console.log("Report -> store", store)
     const { error, response, loading } = report
+
+    // const [isActive, setIsActive] = useState(0);
+
+    const [isToggleOn, setisToggleOn] = useState(1);
+    const [id, setId] = useState(0);
 
     useEffect(() => {
         dispatch(getReports())
+
+
     }, [])
+
+
+    useEffect(() => {
+        dispatch(toggleNews(id, isToggleOn))
+
+
+    }, [isToggleOn])
+
+
 
     useEffect(() => { }, [error, response, loading])
 
+    const blockUnblockNews = (e) => {
+        setId(e.target.id)
+        console.log("blockUnblockNews -> e.target.id", e.target.id)
+        if (isToggleOn) {
+            setisToggleOn(1)
+
+        }
+        else {
+            setisToggleOn(0)
+
+        }
+        console.log("blockUnblockNews -> isToggleOn", isToggleOn)
+    }
 
 
+
+
+    // const theme = {
+    //     color: '#ff0000',
+    //     primaryShadowColor: '#000dd',
+    //     secondaryShadowColor: '#ffffff'
+    //   }
 
     return (
         <div>
@@ -54,8 +90,11 @@ export const Report = (props) => {
                                                         <td>{note.headline}</td>
                                                         <td>{note.report_reason}</td>
                                                         <td>{note.report_ctr}</td>
-                                                        <td>
-                                                            <div className="badge badge-outline-danger">Block</div>
+                                                        {/* {setIsActive(note.isActive)} */}
+                                                        <td className="badge ">
+                                                            {/* <div className="badge badge-outline-danger" onClick={blockUnblockNews} id={note.id} >Block</div> */}
+
+                                                            <Switch theme='dark' onClick={blockUnblockNews} id={note.id} />
                                                         </td>
                                                     </tr>
                                                 )

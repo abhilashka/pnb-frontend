@@ -4,6 +4,9 @@ import {
     REPORT_FETCH_SUCCESS,
     REPORT_FETCH_FAIL,
     REPORT_FETCH_RESET,
+    REPORT_NEWS_SUCCESS,
+    REPORTER_NEWS_FAIL,
+    REPORT_NEWS_FETCH_REQUEST
 } from '../constant/reportConstants'
 
 import axios from 'axios'
@@ -20,8 +23,7 @@ export const getReports = () => {
         const header = {
             headers: {
                 'Content-Type': 'application/json',
-                // token: sessionStorage['token'],
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
+                token: sessionStorage['token']
             },
         }
 
@@ -44,3 +46,40 @@ export const getReports = () => {
 }
 
 
+export const toggleNews = (id, type) => {
+    console.log("toggleNews -> id, type", id, type)
+
+    return (dispatch) => {
+        dispatch({
+            type: REPORT_NEWS_SUCCESS,
+        })
+
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                token: sessionStorage['token'],
+            },
+        }
+        const body = {
+            id: id,
+            type: type
+        }
+
+        const url = BASE_URL + BASE_PORT + '/admin/handlenews'
+        console.log("toggleNews -> url", url)
+        axios
+            .post(url, body, header)
+            .then((response) => {
+                dispatch({
+                    type: REPORT_NEWS_SUCCESS,
+                    payload: response.data,
+                })
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REPORTER_NEWS_FAIL,
+                    payload: error,
+                })
+            })
+    }
+}
