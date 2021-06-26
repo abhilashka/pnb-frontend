@@ -5,6 +5,8 @@ import { getProfile } from '../../actions/profileAction';
 import { Link } from 'react-router-dom';
 import { store } from '../../store';
 import PropTypes from "prop-types";
+// import '../assets/styles/shards-dashboards.1.1.0.min.css'
+// import '../../assets/styles/shards-dashboards.1.1.0.min.css'
 
 import {
     Card,
@@ -26,7 +28,6 @@ export const Profile = ({ profile }) => {
     const dispatch = useDispatch()
     const profile1 = useSelector((store) => store.profile)
     const { error, response, loading } = profile1
-    console.log("Profile -> response", response)
 
     useEffect(() => {
         dispatch(getProfile())
@@ -43,10 +44,12 @@ export const Profile = ({ profile }) => {
     // setFormData(response.first_name);
 
 
+
+
     return (
         <div>
 
-            <Card small className="mb-4">
+            <Card className="mb-4">
                 <CardHeader className="border-bottom">
                     <h6 className="m-0">{title}</h6>
                 </CardHeader>
@@ -160,12 +163,14 @@ export const Profile = ({ profile }) => {
         </div>
     )
 
+
     Profile.propTypes = {
         /**
          * The user details object.
          */
         profile: PropTypes.object
     };
+
 
     Profile.defaultProps = {
         profile: {
@@ -180,8 +185,6 @@ export const Profile = ({ profile }) => {
         }
 
     }
-
-
 
 
 }
