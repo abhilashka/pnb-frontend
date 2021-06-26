@@ -20,12 +20,11 @@ export const getProfile = () => {
         const header = {
             headers: {
                 'Content-Type': 'application/json',
-                // token: sessionStorage['token'],
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
+                token: sessionStorage['token'],
             },
         }
 
-        const url = BASE_URL + BASE_PORT + '/admin/profile'
+        const url = BASE_URL + BASE_PORT + '/admin/getprofile'
         axios
             .get(url, header)
             .then((response) => {

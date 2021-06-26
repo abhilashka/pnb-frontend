@@ -11,6 +11,7 @@ import {toast} from 'react-toastify';
   
 // Import toastify css file
 import 'react-toastify/dist/ReactToastify.css'; 
+
   
  // toast-configuration method, 
  // it is compulsory method.
@@ -34,11 +35,9 @@ class App extends Component {
     const body = document.querySelector('body');
     if (this.props.location.pathname === '/layout/RtlLayout') {
       body.classList.add('rtl');
-      i18n.changeLanguage('ar');
     }
     else {
       body.classList.remove('rtl')
-      i18n.changeLanguage('en');
     }
     window.scrollTo(0, 0);
     const fullPageLayoutRoutes = ['/user-pages/login-1', '/user-pages/login-2', '/user-pages/register-1', '/user-pages/register-2', '/user-pages/lockscreen', '/error-pages/error-404', '/error-pages/error-500', '/general-pages/landing-page', '/login','/'];

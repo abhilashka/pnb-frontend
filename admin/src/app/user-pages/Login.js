@@ -52,7 +52,7 @@ export const Login = (props) => {
               <div className="brand-logo">
                 <img src={require("../../assets/images/logo.svg")} alt="logo" />
               </div>
-              <h3 className="">  SIGN IN-ADMIN </h3>
+              <h5 className="">  SIGN IN-ADMIN </h5>
               {(showError) ? <EmailError /> : ''}
               <Form className="pt-3">
                 <Form.Group className="d-flex search-field">

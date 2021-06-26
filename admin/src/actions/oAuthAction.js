@@ -11,10 +11,12 @@ import { BASE_URL, BASE_PORT } from '../constant/base'
 
 
 export const logout = () => {
+    console.log('hello logout')
+    sessionStorage.removeItem('token')
+    document.location.href = '/login'
+
     return (dispatch) => {
-        sessionStorage.removeItem('token')
-        dispatch({ type: USER_SIGNOUT })
-        document.location.href = '/signin'
+
     }
 }
 
