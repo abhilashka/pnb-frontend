@@ -4,6 +4,9 @@ import {
     USER_FETCH_SUCCESS,
     USER_FETCH_FAIL,
     USER_FETCH_RESET,
+    BLOCK_USER_REQUEST,
+    BLOCK_USER_SUCCESS,
+    BLOCK_USER_FAIL,
 } from '../constant/userConstants'
 
 import axios from 'axios'
@@ -20,8 +23,7 @@ export const getUsers = () => {
         const header = {
             headers: {
                 'Content-Type': 'application/json',
-                // token: sessionStorage['token'],
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
+                token: sessionStorage['token'],
             },
         }
 
@@ -37,6 +39,44 @@ export const getUsers = () => {
             .catch((error) => {
                 dispatch({
                     type: USER_FETCH_FAIL,
+                    payload: error,
+                })
+            })
+    }
+}
+
+
+export const blockUser = (email, isActive) => {
+    console.log("blockUser -> email, isActive", email, isActive)
+    return (dispatch) => {
+        dispatch({
+            type: BLOCK_USER_REQUEST,
+        })
+
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                token: sessionStorage['token'],
+            },
+        }
+
+        const body = {
+            email,
+            isActive
+        }
+
+        const url = BASE_URL + BASE_PORT + '/admin/blockuser'
+        axios
+            .put(url, body, header)
+            .then((response) => {
+                dispatch({
+                    type: BLOCK_USER_SUCCESS,
+                    payload: response.data,
+                })
+            })
+            .catch((error) => {
+                dispatch({
+                    type: BLOCK_USER_FAIL,
                     payload: error,
                 })
             })
