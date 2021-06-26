@@ -25,7 +25,7 @@ export const getProfile = () => {
             },
         }
 
-        const url = BASE_URL + BASE_PORT + '/admin/profile'
+        const url = BASE_URL + BASE_PORT + '/admin/getprofile'
         axios
             .get(url, header)
             .then((response) => {
