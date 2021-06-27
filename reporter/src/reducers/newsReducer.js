@@ -3,7 +3,7 @@ import {
     NEWS_FETCH_SUCCESS,
     NEWS_FETCH_FAIL,
     NEWS_FETCH_RESET,
-} from '../constant/NEWSConstants'
+} from '../constant/newsConstant'
 
 
 
