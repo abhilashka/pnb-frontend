@@ -3,9 +3,12 @@ import { Redirect } from "react-router-dom";
 
 // Layout Types
 import { DefaultLayout } from "./layouts";
+import { Login } from "./components/oAuth/Login";
+
+
 
 // Route Views
-import BlogOverview from "./views/BlogOverview";
+import NewsOverview from "./views/NewsOverview";
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
@@ -17,13 +20,13 @@ export default [
   {
     path: "/",
     exact: true,
-    layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    layout: Login,
+    component: () => <Redirect to="/login" />
   },
   {
-    path: "/blog-overview",
-    layout: DefaultLayout,
-    component: BlogOverview
+    path: "/login",
+    layout: Login,
+    component: Login
   },
   {
     path: "/user-profile-lite",
@@ -51,8 +54,8 @@ export default [
     component: Tables
   },
   {
-    path: "/blog-posts",
+    path: "/news",
     layout: DefaultLayout,
-    component: BlogPosts
+    component: NewsOverview
   }
 ];

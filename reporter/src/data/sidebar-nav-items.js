@@ -4,7 +4,7 @@ export default function () {
     {
       title: "News",
       htmlBefore: '<i class="material-icons">vertical_split</i>',
-      to: "/blog-posts",
+      to: "/news",
     },
     {
       title: "Add New News",
