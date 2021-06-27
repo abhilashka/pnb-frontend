@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getNews } from '../actions/newsAction';
 import { Link } from 'react-router-dom';
-
+import ReactPlayer from 'react-player'
 import {
   Container,
   Row,
@@ -381,12 +381,13 @@ export const NewsOverview = (props) => {
           response.data &&
           response.data.length > 0 &&
           response.data.map((post, idx) => (
-            <Col lg="3" md="6" sm="12" className="mb-4" key={idx}>
+            <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
               <Card small className="card-post card-post--1">
                 <div
                   className="card-post__image"
                   style={{ backgroundImage: `url(${post.image})` }}
                 >
+
                   <Badge
                     pill
                     className={`card-post__category bg-${post.categoryTheme}`}
@@ -397,7 +398,7 @@ export const NewsOverview = (props) => {
                     <a
                       href="#"
                       className="card-post__author-avatar card-post__author-avatar--small"
-                      style={{ backgroundImage: `url('${post.authorAvatar}')` }}
+                      style={{ backgroundImage: `url('${post.image}')` }}
                     >
                       Written by {post.author}
                     </a>
@@ -416,6 +417,7 @@ export const NewsOverview = (props) => {
             </Col>
           ))}
       </Row>
+
 
     </Container>
 
