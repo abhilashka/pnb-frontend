@@ -4,6 +4,9 @@ import {
     NEWS_FETCH_SUCCESS,
     NEWS_FETCH_FAIL,
     NEWS_FETCH_RESET,
+    NEWS_ADD_REQUEST,
+    NEWS_ADD_SUCCESS,
+    NEWS_ADD_FAIL
 } from '../constant/newsConstant'
 
 import axios from 'axios'
@@ -43,3 +46,18 @@ export const getNews = () => {
 }
 
 
+
+
+
+
+export async function addNews({ image, title, content,category }) {
+    const formData = new FormData();
+    formData.append("image", image)
+    formData.append("headline", title)
+    formData.append("content", content)
+    formData.append("category", category)
+    const url = BASE_URL + BASE_PORT + '/news/addnews'
+
+    const result = await axios.post(url, formData, { headers: { 'Content-Type': 'multipart/form-data', token: sessionStorage['token'] } })
+    return result.data
+}
