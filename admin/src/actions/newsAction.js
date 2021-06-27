@@ -20,8 +20,7 @@ export const getNews = () => {
         const header = {
             headers: {
                 'Content-Type': 'application/json',
-                // token: sessionStorage['token'],
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlzQWN0aXZlIjoxLCJpYXQiOjE2MjM4MjgxMjN9.DvAdMOaCXvadluspauIZxxTqRyi-KEpfMdXX6RHD-2Q'
+                token: sessionStorage['token'],
             },
         }
 

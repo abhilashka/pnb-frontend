@@ -4,9 +4,10 @@ import {
     NEWS_FETCH_SUCCESS,
     NEWS_FETCH_FAIL,
     NEWS_FETCH_RESET,
-} from '../constant/NEWSConstants'
+} from '../constant/newsConstant'
 
 import axios from 'axios'
+import { BASE_URL, BASE_PORT } from '../constant/base'
 
 
 
@@ -19,11 +20,11 @@ export const getNews = () => {
         const header = {
             headers: {
                 'Content-Type': 'application/json',
-                // token: sessionStorage['token'],
+                token: sessionStorage['token'],
             },
         }
 
-        const url = 'https://jsonplaceholder.typicode.com/todos'
+        const url = BASE_URL + BASE_PORT + '/news/newsbyaddress'
         axios
             .get(url, header)
             .then((response) => {

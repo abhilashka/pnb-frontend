@@ -6,11 +6,7 @@ import {
 } from '../constant/newsConstant'
 
 
-
-
-
-
-export const fetchNEWSsReducer = (state = {}, action) => {
+export const fetchNewsReducer = (state = {}, action) => {
     switch (action.type) {
         case NEWS_FETCH_REQUEST:
             return { loading: true }
