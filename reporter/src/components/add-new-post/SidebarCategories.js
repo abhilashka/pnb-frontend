@@ -21,10 +21,10 @@ const SidebarCategories = ({ title }) => (
     <CardBody className="p-0">
       <ListGroup flush>
         <ListGroupItem className="px-3 pb-2">
-          <FormCheckbox className="mb-1" value="uncategorized" defaultChecked>
+          <FormCheckbox className="mb-1" value="uncategorized" >
             Uncategorized
           </FormCheckbox>
-          <FormCheckbox className="mb-1" value="scam" defaultChecked>
+          <FormCheckbox className="mb-1" value="scam" >
             scam
           </FormCheckbox>
           <FormCheckbox className="mb-1" value="development">
@@ -61,7 +61,7 @@ SidebarCategories.propTypes = {
 };
 
 SidebarCategories.defaultProps = {
-  title: "Categories"
+  title: "Set Category"
 };
 
 export default SidebarCategories;

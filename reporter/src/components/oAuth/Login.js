@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { signin } from '../../actions/oAuthAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const EmailError = () => {
@@ -33,7 +34,10 @@ export const Login = (props) => {
 
     if (response && response.status == 'success') {
       sessionStorage.setItem('token', response.data.token)
+      toast.success('Login Successfull, Welcome', { autoClose: 2000 }, { position: toast.POSITION.TOP_LEFT })
+
       props.history.push('/news')
+
 
     } else if (response && response.status == 'error') {
       // alert(response.error);

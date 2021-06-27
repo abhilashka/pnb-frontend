@@ -8,6 +8,7 @@ import {
   DropdownItem
 } from "shards-react";
 
+
 class DropdownInputGroups extends React.Component {
   constructor(props) {
     super(props);
@@ -29,37 +30,31 @@ class DropdownInputGroups extends React.Component {
   render() {
     return (
       <div>
-        <InputGroup className="mb-3">
-          <FormInput />
+        <InputGroup className="mb-3" >
           <Dropdown
             open={this.state.dropdown1}
             toggle={() => this.toggle("dropdown1")}
             addonType="append"
           >
-            <DropdownToggle caret>Dropdown</DropdownToggle>
-            <DropdownMenu small right>
-              <DropdownItem>Action</DropdownItem>
-              <DropdownItem>Another action</DropdownItem>
-              <DropdownItem>Something else here</DropdownItem>
+            <DropdownToggle caret>Select Category</DropdownToggle>
+            <DropdownMenu small >
+              <DropdownItem>Business</DropdownItem>
+              <DropdownItem>Cars</DropdownItem>
+              <DropdownItem> Entertainment</DropdownItem>
+              <DropdownItem> Family</DropdownItem>
+              <DropdownItem>Health </DropdownItem>
+              <DropdownItem> Politics</DropdownItem>
+              <DropdownItem> Religion</DropdownItem>
+              <DropdownItem> Science</DropdownItem>
+              <DropdownItem> Sports</DropdownItem>
+              <DropdownItem> Travel</DropdownItem>
+              <DropdownItem> Video</DropdownItem>
+              <DropdownItem> World</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </InputGroup>
 
-        <InputGroup className="mb-3">
-          <Dropdown
-            open={this.state.dropdown2}
-            toggle={() => this.toggle("dropdown2")}
-            addonType="prepend"
-          >
-            <DropdownToggle caret>Dropdown</DropdownToggle>
-            <DropdownMenu small>
-              <DropdownItem>Action</DropdownItem>
-              <DropdownItem>Another action</DropdownItem>
-              <DropdownItem>Something else here</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-          <FormInput />
-        </InputGroup>
+
       </div>
     );
   }
