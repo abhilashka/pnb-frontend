@@ -106,24 +106,7 @@ class Sidebar extends Component {
             </Link>
           </li>
 
-          <li className={this.isPathActive('/icons') ? 'nav-item menu-items active' : 'nav-item menu-items'}>
-            <div className={this.state.iconsMenuOpen ? 'nav-link menu-expanded' : 'nav-link'} onClick={() => this.toggleMenuState('iconsMenuOpen')} data-toggle="collapse">
-              <span className="menu-icon">
-                <i className="mdi mdi-contacts"></i>
-              </span>
-              <span className="menu-title"><Trans>Icons</Trans></span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.iconsMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item"> <Link className={this.isPathActive('/icons/mdi') ? 'nav-link active' : 'nav-link'} to="/icons/mdi"><Trans>Material</Trans></Link></li>
-                </ul>
-              </div>
-            </Collapse>
-          </li>
-
-
+      
 
 
         </ul>
