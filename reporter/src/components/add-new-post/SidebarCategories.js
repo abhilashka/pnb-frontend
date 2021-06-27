@@ -24,11 +24,11 @@ const SidebarCategories = ({ title }) => (
           <FormCheckbox className="mb-1" value="uncategorized" defaultChecked>
             Uncategorized
           </FormCheckbox>
-          <FormCheckbox className="mb-1" value="design" defaultChecked>
-            Design
+          <FormCheckbox className="mb-1" value="scam" defaultChecked>
+            scam
           </FormCheckbox>
           <FormCheckbox className="mb-1" value="development">
-            Development
+            Sports
           </FormCheckbox>
           <FormCheckbox className="mb-1" value="writing">
             Writing

@@ -8,7 +8,7 @@ import { Login } from "./components/oAuth/Login";
 
 
 // Route Views
-import NewsOverview from "./views/NewsOverview";
+import {NewsOverview} from "./views/NewsOverview";
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
