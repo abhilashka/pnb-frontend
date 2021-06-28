@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -88,6 +88,7 @@ export const Report = (props) => {
                                         </h2>
                                         <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} />
                                         <span className="text-muted">{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(post.date)}</span>
+
                                         <span>
                                             <TwitterShareButton title={post.headline} url={BASE_URL + BASE_PORT}>
                                                 <TwitterIcon size={25} round={true} />

@@ -92,6 +92,7 @@ export const NewsOverview = (props) => {
                     </Link>
 
                   </h5>
+                  
                   <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} style={{
                     "overflow": "hidden",
                     "textOverflow": "ellipsis"
@@ -103,7 +104,6 @@ export const NewsOverview = (props) => {
                     }
 
                   }} onClick={event => { onNewsClick(post.id) }} >Read more</Link>
-                  <span className="text-muted" >{post.date}     </span>
 
 
 
