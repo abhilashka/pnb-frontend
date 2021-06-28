@@ -69,7 +69,7 @@ export const Login = (props) => {
     }
   }, [loading, error, response])
 
-  
+
 
   return (
     <div>
@@ -79,8 +79,9 @@ export const Login = (props) => {
             <div className="card text-left py-5 px-4 px-sm-5">
               <div className="brand-logo">
                 {/* <img src={require("../../assets/images/logo.svg")} alt="logo" /> */}
+                <h4 class="fas fa-solar-panel">Public News Board</h4>
               </div>
-              <h5 className="">  SIGN IN </h5>
+              <h6 className="">  SIGN IN </h6>
               {showVerifyError && <IsVerifiedError />}
               {(showError) ? <EmailError /> : ''}
               <Form className="pt-3">
@@ -111,7 +112,7 @@ export const Login = (props) => {
                 </div>
 
                 <div className="text-center mt-4 font-weight-light">
-                  Don't have an account? <Link to="/user-pages/register" className="text-primary">Create</Link>
+                  Don't have an account? <Link to="/register" className="text-primary">Create</Link>
                 </div>
               </Form>
             </div>

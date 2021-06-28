@@ -7,12 +7,13 @@ export class Register extends Component {
       <div>
         <div className="d-flex align-items-center auth px-0 h-100">
           <div className="row w-100 mx-0">
-            <div className="col-lg-4 mx-auto">
+            <div className="col-lg-6 mx-auto">
               <div className="card text-left py-5 px-4 px-sm-5">
-                {/* <div className="brand-logo">
-                  <img src={require("../../assets/images/logo.svg")} alt="logo" />
-                </div> */}
-                <h4>New here?</h4>
+              
+
+<h4 class="fas fa-solar-panel">Public News Board</h4>
+
+                <h6>New here?</h6>
                 <h6 className="font-weight-light">
                   Signing up is easy. It only takes a few steps
                 </h6>
@@ -129,7 +130,7 @@ export class Register extends Component {
                   </div>
                   <div className="text-center mt-4 font-weight-light">
                     Already have an account?{" "}
-                    <Link to="/user-pages/login" className="text-primary">
+                    <Link to="/login" className="text-primary">
                       Login
                     </Link>
                   </div>
