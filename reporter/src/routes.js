@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 // Layout Types
 import { DefaultLayout } from "./layouts";
 import { Login } from "./components/oAuth/Login";
-
+import { Register} from "./components/oAuth/Register";
 
 
 // Route Views
@@ -30,6 +30,11 @@ export default [
     path: "/login",
     layout: Login,
     component: Login
+  },
+  {
+    path: "/register",
+    layout: Register,
+    component: Register
   },
   {
     path: "/user-profile-lite",

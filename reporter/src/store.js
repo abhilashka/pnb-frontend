@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { userSigninReducer } from './reducers/oAuthReducer'
+import { userSigninReducer, userSignupReducer } from './reducers/oAuthReducer'
 import { fetchNewsReducer } from './reducers/newsReducer'
 
 import logger from 'redux-logger'
@@ -12,8 +12,9 @@ const reducers = combineReducers({
 
     signin: userSigninReducer,
     news: fetchNewsReducer,
+    signup: userSignupReducer
 
-   
+
 })
 
 const store = createStore(

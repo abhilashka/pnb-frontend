@@ -16,7 +16,7 @@ export const Home = ({ layout, stickyTop }) => {
 
         <div>
 
-            <Navbar bg="light" variant="light" className="sticky">
+            <Navbar bg="light" variant="light" fixed="top">
                 <Navbar.Brand href="">Public News Board</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/"><button className="mb-2 mr-1 btn ">Trending News</button></Nav.Link>
