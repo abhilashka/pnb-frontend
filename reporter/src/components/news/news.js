@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React  from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -19,9 +19,7 @@ import {
     Col,
     Card,
     CardBody,
-    CardFooter,
     Badge,
-    Button
 } from "shards-react";
 import { BASE_URL, BASE_PORT } from '../../constant/base'
 
@@ -32,7 +30,6 @@ export const Report = (props) => {
     const news = useSelector((store) => store.news)
 
     const { error, response, loading } = news
-    const [id, setId] = useState()
 
     useEffect(() => {
         dispatch(getNewsByCategory())
