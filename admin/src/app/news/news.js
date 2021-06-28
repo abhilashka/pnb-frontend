@@ -19,34 +19,34 @@ export const News = (props) => {
 
     useEffect(() => { }, [error, response, loading])
 
-    
+
 
 
     return (
-       <div className="row">
-             {response &&
+        <div className="row">
+            {response &&
 
-              response.data &&
-              response.data.length > 0 &&
-              response.data.map((note, index) => {
-    return (
-                
-              <div key={index}>
-                  <div className="news">
-                  <div  className="card md-col-2">
-                  <img src="" className="card-img-top" alt="..."/>
-                  <div className="card-body">
-                  <h5 className="card-title">{note.headline}</h5>
-                  <p className="card-text">{note.content}</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
-                  </div>
-                 </div>
-               </div>
-              </div>
-          )
-       })}
-       </div>
-        
+                response.data &&
+                response.data.length > 0 &&
+                response.data.map((note, index) => {
+                    return (
+
+                        <div key={index}>
+                            <div className="news">
+                                <div className="card md-col-2">
+                                    <img src={note.image} className="card-img-top" alt="" style={{ width: "50%" }} />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{note.headline} </h5>
+                                        <p className="card-text">{note.content}</p>
+                                        <a href="#" className="btn btn-primary">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
+        </div>
+
     )
 
 }

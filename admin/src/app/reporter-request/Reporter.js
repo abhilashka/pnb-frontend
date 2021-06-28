@@ -41,7 +41,6 @@ export const Reporter = (props) => {
 
   return (
     <div>
-      {(response) ? <h4>No reporter request</h4> : ""}
       {response && response.data &&
         response.data.length > 0 &&
         <div className="row ">
