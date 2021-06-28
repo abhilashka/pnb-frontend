@@ -1,9 +1,9 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getNews, getAllNews,showDetails } from '../actions/newsAction';
+import { getNews, getAllNews, showDetails } from '../actions/newsAction';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 import {
@@ -34,6 +34,8 @@ export const NewsOverview = (props) => {
   const { error, response, loading } = news
   console.log("News -> response", response)
 
+  const [id, setId] = useState(0)
+
   useEffect(() => {
     if (sessionStorage['type'] == 'REP') { dispatch(getNews()) } else { dispatch(getAllNews()); }
 
@@ -41,9 +43,12 @@ export const NewsOverview = (props) => {
 
   useEffect(() => { }, [error, response, loading])
 
- const  onNewsClick=()=>{
-   showDetails()
- }
+  const onNewsClick = (id) => {
+    console.log("onNewsClick -> id", id)
+
+    dispatch(showDetails(id))
+
+  }
 
   return (
 
@@ -84,13 +89,32 @@ export const NewsOverview = (props) => {
                 </div>
                 <CardBody>
                   <h5 className="card-title">
-                    <a href="#" onClick={onNewsClick} className="text-fiord-blue">
+                    <Link to={{
+                      pathname: '/newsdetails',
+                      aboutProps: {
+                        newsid: post.id
+                      }
+
+                    }} className="text-fiord-blue" onClick={event => { onNewsClick(post.id) }}   >
                       {post.headline}
-                    </a>
+
+                    </Link>
 
                   </h5>
-                  <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} />
-                  <span className="text-muted">{post.date}</span>
+                  <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} style={{
+                    "overflow": "hidden",
+                    "textOverflow": "ellipsis"
+                  }} />
+                  <Link to={{
+                    pathname: '/newsdetails',
+                    aboutProps: {
+                      newsid: post.id
+                    }
+
+                  }} onClick={event => { onNewsClick(post.id) }} >Read more</Link>
+
+                  <span className="text-muted" >{post.date}
+                  </span>
                 </CardBody>
               </Card>
             </Col>
@@ -98,7 +122,7 @@ export const NewsOverview = (props) => {
       </Row>
 
 
-    </Container>
+    </Container >
 
   )
 
