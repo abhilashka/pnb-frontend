@@ -1,8 +1,7 @@
 
-import React, { useState } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import React  from "react";
+import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom';
 import {
     EmailIcon,
     FacebookIcon,
@@ -13,7 +12,6 @@ import {
     FacebookShareButton,
     WhatsappShareButton
 } from "react-share";
-import { showDetails } from '../actions/newsAction';
 
 import {
     Container,
@@ -21,18 +19,14 @@ import {
     Col,
     Card,
     CardBody,
-    CardFooter,
     Badge,
-    Button
 } from "shards-react";
 import { BASE_URL, BASE_PORT } from '../constant/base'
 
 export const NewsDetails = (props) => {
-    const dispatch = useDispatch()
     const news = useSelector((store) => store.news)
 
     const { error, response, loading } = news
-    const [id, setId] = useState()
 
     useEffect(() => {
 
@@ -46,7 +40,6 @@ export const NewsDetails = (props) => {
         <div>
             <Container fluid className="main-content-container px-4">
                 <Row noGutters className="page-header py-4">
-                    {/* <div sm="4" title="Lastest News" subtitle="Trending" className="text-sm-left" >hello</div> */}
                 </Row>
 
                 <Row>
