@@ -8,7 +8,8 @@ import { Login } from "./components/oAuth/Login";
 
 
 // Route Views
-import {NewsOverview} from "./views/NewsOverview";
+import { NewsOverview } from "./views/NewsOverview";
+import { NewsDetails } from "./views/NewsDetails";
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
@@ -57,5 +58,10 @@ export default [
     path: "/news",
     layout: DefaultLayout,
     component: NewsOverview
+  },
+  {
+    path: "/newsdetails",
+    layout: DefaultLayout,
+    component: NewsDetails
   }
 ];

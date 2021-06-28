@@ -78,7 +78,9 @@ export const getAllNews = () => {
 }
 
 
-export const showDetails = () => {
+export const showDetails = (id) => {
+    console.log("showDetails -> id", id)
+
     return (dispatch) => {
         dispatch({
             type: NEWS_FETCH_REQUEST,
@@ -91,9 +93,14 @@ export const showDetails = () => {
             },
         }
 
-        const url = BASE_URL + BASE_PORT + '/news/'
+        const body = {
+            id
+        }
+        console.log("showDetails -> body", body)
+
+        const url = BASE_URL + BASE_PORT + '/news/getnewsbyid'
         axios
-            .get(url, header)
+            .post(url,body, header)
             .then((response) => {
                 dispatch({
                     type: NEWS_FETCH_SUCCESS,
