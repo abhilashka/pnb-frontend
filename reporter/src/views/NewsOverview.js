@@ -3,7 +3,7 @@
 import React from "react";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getNews } from '../actions/newsAction';
+import { getNews, getAllNews,showDetails } from '../actions/newsAction';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 import {
@@ -35,18 +35,21 @@ export const NewsOverview = (props) => {
   console.log("News -> response", response)
 
   useEffect(() => {
-    dispatch(getNews())
+    if (sessionStorage['type'] == 'REP') { dispatch(getNews()) } else { dispatch(getAllNews()); }
 
   }, [])
 
   useEffect(() => { }, [error, response, loading])
 
+ const  onNewsClick=()=>{
+   showDetails()
+ }
+
   return (
 
     <Container fluid className="main-content-container px-4">
-      {/* Page Header */}
       <Row noGutters className="page-header py-4">
-        <PageTitle sm="4" title="Blog Posts" subtitle="Components" className="text-sm-left" />
+        <PageTitle sm="4" title="Lastest News" subtitle="Trending" className="text-sm-left" />
       </Row>
 
       <Row>
@@ -81,9 +84,10 @@ export const NewsOverview = (props) => {
                 </div>
                 <CardBody>
                   <h5 className="card-title">
-                    <a href="#" className="text-fiord-blue">
+                    <a href="#" onClick={onNewsClick} className="text-fiord-blue">
                       {post.headline}
                     </a>
+
                   </h5>
                   <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} />
                   <span className="text-muted">{post.date}</span>

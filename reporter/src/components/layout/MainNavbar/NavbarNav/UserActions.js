@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink
 } from "shards-react";
+import {logout} from "../../../../actions/oAuthAction"
 
 export default class UserActions extends React.Component {
   constructor(props) {
@@ -26,7 +27,11 @@ export default class UserActions extends React.Component {
       visible: !this.state.visible
     });
   }
- 
+
+  onLogout(){
+    logout()
+  }
+
   render() {
     return (
       <NavItem tag={Dropdown} caret toggle={this.toggleUserActions}>
@@ -36,7 +41,7 @@ export default class UserActions extends React.Component {
             src={require("./../../../../images/avatars/0.jpg")}
             alt="User Avatar"
           />{" "}
-          <span className="d-none d-md-inline-block">Sierra Brooks</span>
+          <span className="d-none d-md-inline-block">{sessionStorage['name'].toUpperCase() }</span>
         </DropdownToggle>
         <Collapse tag={DropdownMenu} right small open={this.state.visible}>
           <DropdownItem tag={Link} to="user-profile-lite">
@@ -44,7 +49,7 @@ export default class UserActions extends React.Component {
           </DropdownItem>
 
           <DropdownItem divider />
-          <DropdownItem tag={Link} to="/login"  className="text-danger">
+          <DropdownItem onClick={this.onLogout} className="text-danger">
             <i className="material-icons text-danger">&#xE879;</i> Logout
           </DropdownItem>
         </Collapse>
