@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Container } from "shards-react";
 
 import NavbarSearch from "../components/layout/MainNavbar/NavbarSearch"
-import { Navbar, FormControl, Nav, Form, Button } from 'react-bootstrap';
+import { Navbar, Nav  } from 'react-bootstrap';
 import BlogPosts from '../views/BlogPosts';
 export const Home = ({ layout, stickyTop }) => {
     const classes = classNames(

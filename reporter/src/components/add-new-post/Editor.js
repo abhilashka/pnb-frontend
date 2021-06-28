@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import {
-  Card, CardBody, Form, FormInput, Button, ListGroupItem, CardHeader, CardFooter,
-  DropdownToggle,
-  DropdownItem, InputGroup, DropdownMenu
+  Card, CardBody, Form, FormInput, Button, ListGroupItem, CardHeader, CardFooter
 } from "shards-react";
-import { useDispatch, useSelector } from 'react-redux'
-import SidebarCategories from "./SidebarCategories";
-import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { useDispatch } from 'react-redux'
 import "react-quill/dist/quill.snow.css";
 import "../../assets/quill.css";
 import { addNews } from "../../actions/newsAction"
-import DropdownInputGroups from "../components-overview/DropdownInputGroups"
 
 import { toast } from 'react-toastify';
 
@@ -49,7 +44,7 @@ const Editor = () => {
     setCategory('')
     setDescription('')
     toast.success('News Added Successfully', { autoClose: 2000 }, { position: toast.POSITION.BOTTOM_RIGHT })
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }
 
   const fileSelected = event => {

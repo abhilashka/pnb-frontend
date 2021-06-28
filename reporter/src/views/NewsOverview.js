@@ -12,18 +12,10 @@ import {
   Col,
   Card,
   CardBody,
-  CardFooter,
   Badge,
-  Button
 } from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
-
-import { toast } from 'react-toastify';
-
-
-
-
 
 
 
@@ -112,7 +104,6 @@ export const NewsOverview = (props) => {
 
                   }} onClick={event => { onNewsClick(post.id) }} >Read more</Link>
                   <span className="text-muted" >{post.date}     </span>
-
 
 
 
