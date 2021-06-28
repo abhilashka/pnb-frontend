@@ -50,7 +50,6 @@ export const Report = (props) => {
         <div>
             <Container fluid className="main-content-container px-4">
                 <Row noGutters className="page-header py-4">
-                    {/* <div sm="4" title="Lastest News" subtitle="Trending" className="text-sm-left" >hello</div> */}
                 </Row>
 
                 <Row>
@@ -90,7 +89,6 @@ export const Report = (props) => {
 
                                         </h2>
                                         <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} />
-                                        <span className="text-muted">{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(post.date)}</span>
                                         <span>
                                             <TwitterShareButton title={post.headline} url={BASE_URL + BASE_PORT}>
                                                 <TwitterIcon size={25} round={true} />
