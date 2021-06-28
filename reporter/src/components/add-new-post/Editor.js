@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import {
-  Card, CardBody, Form, FormInput, Button, ListGroupItem, CardHeader, CardFooter
+  Card, CardBody, Form, FormInput, Button, ListGroupItem, CardFooter
 } from "shards-react";
 import { useDispatch } from 'react-redux'
 import "react-quill/dist/quill.snow.css";
@@ -13,7 +13,6 @@ import { toast } from 'react-toastify';
 
 
 const Editor = () => {
-  const dispatch = useDispatch()
 
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
