@@ -19,7 +19,6 @@ import {
 
 import PageTitle from "../components/common/PageTitle";
 
-
 import { toast } from 'react-toastify';
 
 
@@ -49,7 +48,7 @@ export const NewsOverview = (props) => {
     dispatch(showDetails(id))
 
   }
-
+  var timestamp = Date.now();
   return (
 
     <Container fluid className="main-content-container px-4">
@@ -112,9 +111,11 @@ export const NewsOverview = (props) => {
                     }
 
                   }} onClick={event => { onNewsClick(post.id) }} >Read more</Link>
+                  <span className="text-muted" >{post.date}     </span>
 
-                  <span className="text-muted" >{post.date}
-                  </span>
+
+
+
                 </CardBody>
               </Card>
             </Col>

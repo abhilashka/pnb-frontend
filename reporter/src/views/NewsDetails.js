@@ -6,26 +6,12 @@ import { Link } from 'react-router-dom';
 import {
     EmailIcon,
     FacebookIcon,
-    FacebookMessengerIcon,
-    HatenaIcon,
-    InstapaperIcon,
-    LineIcon,
-    LinkedinIcon,
-    LivejournalIcon,
-    MailruIcon,
-    OKIcon,
-    PinterestIcon,
-    PocketIcon,
-    RedditIcon,
-    TelegramIcon,
-    TumblrIcon,
     TwitterIcon,
-    ViberIcon,
-    VKIcon,
-    WeiboIcon,
     WhatsappIcon,
-    WorkplaceIcon,
-    TwitterShareButton
+    TwitterShareButton,
+    EmailShareButton,
+    FacebookShareButton,
+    WhatsappShareButton
 } from "react-share";
 import { showDetails } from '../actions/newsAction';
 
@@ -100,16 +86,26 @@ export const NewsDetails = (props) => {
 
                                         </h2>
                                         <p className="card-text d-inline-block mb-3" dangerouslySetInnerHTML={{ __html: post.content }} />
-                                        <span className="text-muted">{post.date}</span>
+                                        <span className="text-muted">{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(post.date)}</span>
                                         <span>
-                                            <h6>Share News </h6>
-                                            <TwitterShareButton title={post.headline} url={BASE_URL+BASE_PORT}>
-                                                <TwitterIcon size={32} round={true} />
+                                            <TwitterShareButton title={post.headline} url={BASE_URL + BASE_PORT}>
+                                                <TwitterIcon size={25} round={true} />
 
                                             </TwitterShareButton>
-                                            <EmailIcon size={32} round={true} />
-                                            <FacebookIcon size={32} round={true} />
-                                            <WhatsappIcon size={32} round={true} />
+
+                                            <EmailShareButton subject={post.headline} imageUrl={post.image} url={BASE_URL + BASE_PORT} body={post.content}>
+                                                <EmailIcon size={25} round={true} />
+
+                                            </EmailShareButton>
+                                            <FacebookShareButton subject={post.headline} body={post.content} url={BASE_URL + BASE_PORT} separator="share->">
+                                                <FacebookIcon size={25} round={true} />
+
+                                            </FacebookShareButton>
+                                            <WhatsappShareButton quote={post.headline} url={BASE_URL + BASE_PORT} hashtag={post.headline} >
+                                                <WhatsappIcon size={25} round={true} />
+
+
+                                            </WhatsappShareButton>
                                         </span>
                                     </CardBody>
 
