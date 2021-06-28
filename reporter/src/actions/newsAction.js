@@ -46,11 +46,72 @@ export const getNews = () => {
 }
 
 
+export const getAllNews = () => {
+    return (dispatch) => {
+        dispatch({
+            type: NEWS_FETCH_REQUEST,
+        })
+
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                token: sessionStorage['token'],
+            },
+        }
+
+        const url = BASE_URL + BASE_PORT + '/news/'
+        axios
+            .get(url, header)
+            .then((response) => {
+                dispatch({
+                    type: NEWS_FETCH_SUCCESS,
+                    payload: response.data,
+                })
+            })
+            .catch((error) => {
+                dispatch({
+                    type: NEWS_FETCH_FAIL,
+                    payload: error,
+                })
+            })
+    }
+}
+
+
+export const showDetails = () => {
+    return (dispatch) => {
+        dispatch({
+            type: NEWS_FETCH_REQUEST,
+        })
+
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                token: sessionStorage['token'],
+            },
+        }
+
+        const url = BASE_URL + BASE_PORT + '/news/'
+        axios
+            .get(url, header)
+            .then((response) => {
+                dispatch({
+                    type: NEWS_FETCH_SUCCESS,
+                    payload: response.data,
+                })
+            })
+            .catch((error) => {
+                dispatch({
+                    type: NEWS_FETCH_FAIL,
+                    payload: error,
+                })
+            })
+    }
+}
 
 
 
-
-export async function addNews({ image, title, content,category }) {
+export async function addNews({ image, title, content, category }) {
     const formData = new FormData();
     formData.append("image", image)
     formData.append("headline", title)

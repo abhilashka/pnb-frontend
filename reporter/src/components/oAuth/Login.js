@@ -10,7 +10,15 @@ import { toast } from 'react-toastify';
 const EmailError = () => {
   return (
     <div style={{ border: '1px solid red', alignItems: 'center' }}>
-      <h5 style={{ margin: '15px', cellPadding: '55px' }}>Please enter valid email/password</h5>
+      <div style={{ margin: '15px', cellPadding: '55px' }}>Please enter valid email/password</div>
+    </div>
+  );
+}
+
+const IsVerifiedError = () => {
+  return (
+    <div style={{ border: '1px solid red', alignItems: 'center' }}>
+      <div style={{ margin: '15px', cellPadding: '55px' }}>Please verify your email </div>
     </div>
   );
 }
@@ -18,6 +26,7 @@ const EmailError = () => {
 export const Login = (props) => {
 
   const [showError, setShowError] = useState(false)
+  const [showVerifyError, setShowVerifyError] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -34,6 +43,9 @@ export const Login = (props) => {
 
     if (response && response.status == 'success') {
       sessionStorage.setItem('token', response.data.token)
+      sessionStorage.setItem('name', response.data.first_name + " " + response.data.last_name)
+      sessionStorage.setItem('type', response.data.type)
+      sessionStorage.setItem('isVerified', response.data.isVerified)
       toast.success('Login Successfull, Welcome', { autoClose: 2000 }, { position: toast.POSITION.TOP_LEFT })
 
       props.history.push('/news')
@@ -41,12 +53,23 @@ export const Login = (props) => {
 
     } else if (response && response.status == 'error') {
       // alert(response.error);
-      setShowError(true);
+
+      if (response.error == "please verify your email") {
+        setShowVerifyError(true)
+        setShowError(false);
+
+      }
+      else {
+        setShowError(true);
+        setShowVerifyError(false);
+
+      }
     } else if (error) {
       alert(error)
     }
   }, [loading, error, response])
 
+  
 
   return (
     <div>
@@ -58,6 +81,7 @@ export const Login = (props) => {
                 {/* <img src={require("../../assets/images/logo.svg")} alt="logo" /> */}
               </div>
               <h5 className="">  SIGN IN </h5>
+              {showVerifyError && <IsVerifiedError />}
               {(showError) ? <EmailError /> : ''}
               <Form className="pt-3">
                 <Form.Group className="d-flex search-field">

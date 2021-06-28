@@ -9,7 +9,7 @@ class SidebarNavItems extends React.Component {
     super(props)
 
     this.state = {
-      navItems: Store.getSidebarItems()
+      navItems: Store.getSidebarItems(),
     };
 
     this.onChange = this.onChange.bind(this);
@@ -17,6 +17,7 @@ class SidebarNavItems extends React.Component {
 
   componentWillMount() {
     Store.addChangeListener(this.onChange);
+
   }
 
   componentWillUnmount() {
@@ -28,6 +29,8 @@ class SidebarNavItems extends React.Component {
       ...this.state,
       navItems: Store.getSidebarItems()
     });
+
+
   }
 
   render() {
@@ -35,9 +38,15 @@ class SidebarNavItems extends React.Component {
     return (
       <div className="nav-wrapper">
         <Nav className="nav--no-borders flex-column">
-          {items.map((item, idx) => (
+          {sessionStorage['type']=='REP'  && items.map((item, idx) => (
             <SidebarNavItem key={idx} item={item} />
           ))}
+
+          {sessionStorage['type']=='RED' &&
+            items.filter(
+              (item, i) => item.title != 'Add New News').map((item, i) => <SidebarNavItem key={i} item={item} />)
+          }
+
         </Nav>
       </div>
     )
