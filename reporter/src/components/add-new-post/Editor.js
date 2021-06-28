@@ -66,7 +66,7 @@ const Editor = () => {
   return (
     <Card small className="mb-3">
 
-      <CardBody lassName="mb-3">
+      <CardBody className="mb-3">
         <Form className="add-new-post">
           <FormInput size="lg" className="mb-3" placeholder="Post Title" onChange={event => setTitle(event.target.value)} />
           <ReactQuill size="sm" className="add-new-post__editor mb-30 " value={content} onChange={setContent} placeholder="Post Description" />

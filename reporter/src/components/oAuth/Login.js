@@ -79,7 +79,7 @@ export const Login = (props) => {
             <div className="card text-left py-5 px-4 px-sm-5">
               <div className="brand-logo">
                 {/* <img src={require("../../assets/images/logo.svg")} alt="logo" /> */}
-                <h4 class="fas fa-solar-panel">Public News Board</h4>
+                <h4 className="fas fa-solar-panel">Public News Board</h4>
               </div>
               <h6 className="">  SIGN IN </h6>
               {showVerifyError && <IsVerifiedError />}
@@ -96,6 +96,9 @@ export const Login = (props) => {
                   }} type="password" placeholder="Password" size="lg" className="h-auto" />
                 </Form.Group>
                 <div className="mt-3">
+                  <Link to="/" className="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn">
+                    CANCLE
+                  </Link>
                   <div onClick={onSignin} className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
                     SIGN IN
                   </div>
