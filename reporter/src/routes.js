@@ -10,6 +10,8 @@ import { Register} from "./components/oAuth/Register";
 // Route Views
 import { NewsOverview } from "./views/NewsOverview";
 import { NewsDetails } from "./views/NewsDetails";
+import { Home } from "./views/home";
+import { Report } from "./components/news/news"
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
@@ -21,7 +23,7 @@ export default [
   {
     path: "/",
     exact: true,
-    layout: Login,
+    layout: Home,
     component: () => <Redirect to="/login" />
   },
   {
@@ -68,5 +70,60 @@ export default [
     path: "/newsdetails",
     layout: DefaultLayout,
     component: NewsDetails
+  },
+  {
+    path: "/buisiness",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/cars",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/buisiness",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/entertainment",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/health",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/Family",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/Science",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/Video",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/Travel",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/World",
+    layout: DefaultLayout,
+    component: Report
+  },
+  {
+    path: "/Sports",
+    layout: DefaultLayout,
+    component: Report
   }
 ];
