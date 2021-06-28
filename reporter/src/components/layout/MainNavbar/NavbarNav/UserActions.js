@@ -29,6 +29,7 @@ export default class UserActions extends React.Component {
   }
 
   onLogout(){
+    
     logout()
   }
 

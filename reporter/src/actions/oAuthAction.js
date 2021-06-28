@@ -7,13 +7,18 @@ import {
 
 import axios from 'axios'
 import { BASE_URL, BASE_PORT } from '../constant/base'
+import { toast } from 'react-toastify';
 
 
 
 export const logout = () => {
     console.log('hello logout')
+    toast.success('Login Successfull, Welcome', { autoClose: 2000 }, { position: toast.POSITION.TOP_LEFT })
+
     sessionStorage.clear()
+
     document.location.href = '/login'
+
 }
 
 

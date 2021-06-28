@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 
 // Import toastify css file
 import 'react-toastify/dist/ReactToastify.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 toast.configure()
 
 export default () => (
