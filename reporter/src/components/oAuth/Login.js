@@ -97,7 +97,7 @@ export const Login = (props) => {
                 </Form.Group>
                 <div className="mt-3">
                   <Link to="/" className="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn">
-                    CANCLE
+                    CANCEL
                   </Link>
                   <div onClick={onSignin} className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
                     SIGN IN
